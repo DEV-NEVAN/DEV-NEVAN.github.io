@@ -3,7 +3,6 @@
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="stylesheet" href="BO/bootstrap.min.css">
-	<link rel="stylesheet" href="BO/bootstrap.bundle.min.js">
 	<title>NEVAN-PROJECT</title>
 </head>
 <style>
@@ -12,6 +11,12 @@
    }
    .nav-link:hover{
    	color: green;
+   }
+   .notif{
+   	text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    word-spacing: -0.05em;
    }
  </style>
 <body>
@@ -23,6 +28,25 @@
 		    <a class="nav-link mt-3 text-secondary" aria-current="page" href="index.html" style="font-size: 15px; font-weight: bold;">Beranda</a>
 		  </li>
 		</ul>
+
+<!-- bagian alert -->
+<div class="container">
+	<div class="alert alert-warning alert-dismissible fade show" role="alert">
+	<div class="row">
+		<div class="col-3">	
+			<img src="image/kanna.png" alt="" style="" class="img-fluid">
+		</div>
+		<div class="col">
+		<p class="notif" style="width: 90%; ">
+			<strong style="font-size: 27px;">Warning!</strong><br> Beberapa project website dibawah tidak responsive, untuk membuka project tersebut diharapkan menggunakan laptop atau komputer.
+		</p>
+			
+		</div>
+	</div>
+	  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+	</div>	
+</div>
+<!-- bagian alert -->
 
 		<h1 class="text-center mt-3 text-success">PROJECT PHP</h1>
 		<div class="container">
@@ -69,6 +93,8 @@
       </div>
 
 	</div>
+
+	<script src="BO/bootstrap.bundle.min.js"></script>
 	
 	
 </body>
