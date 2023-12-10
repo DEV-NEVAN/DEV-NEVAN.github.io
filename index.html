@@ -29,7 +29,7 @@
         </li>  
 
         <li class="nav-item mt-2 mb-2">
-          <a class="nav-link" aria-current="page" href="#" style="font-weight: bold;">Contact</a>
+          <a class="nav-link" aria-current="page" href="#" style="font-weight: bold;" data-bs-toggle="modal" data-bs-target="#exampleModal">Contact</a>
         </li> 
 			</ul>
 
@@ -129,10 +129,39 @@
 
 	<!-- </div> -->
 
-  
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content" style="width: 75%; margin:auto;">
+      <div class="modal-header bg-success text-white" style="height: 55px;">
+        <h5 class="modal-title" id="exampleModalLabel">Contact</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <img src="image/email.png" style="margin-left: 10px; margin-right: 20px;" class="img-fluid rounded float-start" width="10%" alt="email">
+         <p class="mt">fauzi.nvn12@gmail.com</p>
+         <br>
+        <img src="image/whatup.png" style="margin-left: 10px; margin-right: 20px;"  class="img-fluid rounded float-start" width="10%" alt="email">
+         <p class="mt" >0895-3250-86780</p>
+         <br>
+        <img src="image/github.png" style="margin-left: 10px; margin-right: 20px;" class="img-fluid rounded float-start" width="10%" alt="email">
+         <p class="mt" >DEV-NEVAN</p>
+         <br>
+        <img src="image/ig.png" style="margin-left: 10px; margin-right: 20px;" class="img-fluid rounded float-start" width="10%" alt="email">
+         <p class="mt" >nevan fauzi</p>
+      </div>
+      <div class="modal-footer bg-success" style="height: 50px;">
+      </div>
+    </div>
+  </div>
+</div>
+<!-- tutup modal -->
+
 
  	</div>
 
+<script src="BO/bootstrap.bundle.min.js"></script>
   <!-- <script> 
     // button onclick="myalert() "
         // function myalert() { 
