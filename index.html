@@ -32,6 +32,35 @@
   .tropy a:hover {
     color: #2c153f;
   }
+  .image-container {
+    
+    overflow: hidden;
+  }
+
+  .image-container img {
+      width: 100%;
+      height: 100%;
+      transition: transform 0.3s ease;
+  }
+
+  .image-container img:hover {
+      transform: scale(1.05);
+  }
+
+
+  
+
+  /* Style untuk setiap huruf dalam <h1> */
+  .nama-aktor span {
+      
+      transition: text-shadow 0.3s ease, color 0.3s ease;
+  }
+
+  /* Efek menyala saat di-hover */
+  .nama-aktor span:hover {
+      color: #ccffcc;
+      text-shadow: 0 0 8px #99ff99, 0 0 12px #99ff99, 0 0 16px #99ff99, 0 0 20px #99ff99;
+  }
   
  </style>
 <body>
@@ -52,12 +81,14 @@
 
       <div class="row">
         <div class="col-md-6">
-          <img src="image/TES4.png" class="img-fluid" style="margin-top: 40px;" alt="...">
+          <div class="image-container">
+             <img id="mainImage" src="image/TES4.png" class="img-fluid" style="margin-top: 40px;" alt="...">
+          </div>
         </div>
         <div class="col-md-5 mt-5">
           <div class="intro" style="margin-top: 100px;">
             <h5><small class="lead text-white">PERKENALAKAN SAYA,</small></h5>
-                <h1 class="text-success">NEVA NOPEBRIAN FAUZI</h1>
+                <h1 class="text-success nama-aktor" id="glowText">NEVA NOPEBRIAN FAUZI</h1>
                 <p class="lead text-white " align="justify" style="padding: 1px;">Saya merupakan sarjana komputer Universitas Muhammadiyah Tangerang tahun 2021, dan saya mempunyai keahlian dalam bidang pembuatan sebuah website atau sebagai web develover.</p>
           </div>
           
@@ -251,6 +282,37 @@
     "Tutorial terbaik website dan php " +  
     "untuk penggemar IT!"); 
   </script>  -->
-	
+<script>
+
+const mainImage = document.getElementById('mainImage');
+
+// Mengganti gambar saat kursor masuk
+mainImage.addEventListener('mouseenter', function() {
+    mainImage.src = 'image/TES5.png'; // Gambar baru
+    
+    // Mengembalikan gambar ke gambar awal setelah 3 menit (180000 ms)
+    setTimeout(function() {
+        mainImage.src = 'image/TES4.png'; // Gambar awal
+    }, 180000); // 3 menit = 180.000 ms
+});
+
+</script>
+
+<script>
+  const text = document.getElementById('glowText');
+const letters = text.textContent.split('');
+
+// Clear original text content
+text.textContent = '';
+
+// Tambahkan setiap huruf sebagai elemen span
+letters.forEach(letter => {
+    const span = document.createElement('span');
+    span.textContent = letter;
+    text.appendChild(span);
+});
+
+</script>
+
 </body>
 </html>
