@@ -210,6 +210,7 @@
 <!-- bagian pengalaman -->
 <div class="card mb-3 shadow p-3 mb-5 rounded" style="background-color: #d9fce0;">
   <div class="row g-0">
+    <!-- bagian pengalaman kerja 1 -->
     <div class="col-md-3">
       <img src="image/bps.jpg"  style="padding: 10px; border-radius: 15px;" class="img-fluid" alt="...">
     </div>
@@ -218,17 +219,45 @@
         <h5 class="card-title text-success" style="font-weight: bold; text-align: left;">PENGALAMAN KERJA</h5>
         <hr>
         <p class="card-text">
-        	<p style="font-style: italic;">Badan Pusat Statistik Kota Tangerang</p>
+        	<p style="font-style: italic;">Badan Pusat Statistik Kota Tangerang <strong>(2021-2023)</strong><br>
+            Berkerja Sebagai Mitra BPS :
+          </p>
         	<ul>
-        		<li style="text-align: left;">Tahun Kerja <strong>(2021-Masih Berkerja)</strong></li>
-        		<li>Berkerja Sebagai Mitra BPS</li>
-        		<li style="text-align: left;">Bertugas Mengentry data sensus penduduk kota tangerang</li>
+        		<li style="text-align: left;">Mengentry data sensus penduduk kota tangerang</li>
+            <li style="text-align: left;">Memvalidasi data sensus penduduk kota tangerang</li>
+            <li style="text-align: left;">Pemetaan pemekaran wilayah kota tangerang</li>
         	</ul>
+          <button class="btn btn-success mt-3" data-bs-toggle="modal" data-bs-target="#pdfModal"><i class="fas fa-file-alt" style="margin-right:5px;"> </i> Paklaring</button>
         </p>
       </div>
     </div>
+
+    <hr class="mt-4">
+    <!-- pengalaman kerja 2 -->
+    <div class="col-md-3">
+      <img src="image/luxice.png" width="500" height="500" style="padding: 10px; border-radius: 15px;" class="img-fluid" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <p class="card-text">
+          <p style="font-style: italic;">PT. Royal Cahaya Bersama <strong>(2025-Masih Berkerja)</strong><br>
+          Berkerja Sebagai Staff Administrasi :</p>
+          <p></p>
+          <ul>
+            
+            <li style="text-align: left;">Menyusun jadwal dan rute pengiriman barang</li>
+            <li style="text-align: left;">Berkomunikasi dengan customer terkait pengiriman</li>
+            <li style="text-align: left;">Mengelola pemindahan barang dan faktur melalui Accurate Online</li>
+            <li style="text-align: left;">Mencocokkan stok gudang dengan data di Accurate Online</li>
+          </ul>
+        </p>
+      </div>
+    </div>
+
+
   </div>
 </div>
+
 
 <div class="card mb-3 shadow p-3 mb-5 rounded" style="background-color: #d9fce0;">
   <div class="row g-0">
@@ -286,6 +315,28 @@
   </div>
 </div>
 
+
+<!-- bagian modal paklaring -->
+<!-- Modal -->
+  <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <h5 class="modal-title me-3" id="pdfModalLabel">Preview PDF</h5>
+            <!-- Tombol download -->
+            <a href="fileku.pdf" download class="btn btn-outline-primary btn-sm">
+              Download
+            </a>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <iframe src="PDF/Paklaring-BPS.pdf" width="100%" height="600px" style="border: none;"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
 		
 
 	

@@ -1,47 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gambar Berubah Saat Hover</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <title>PDF Viewer Responsive</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    #pdf-canvas {
+      width: 100%;
+      height: auto;
+    }
+
+    @media (max-width: 768px) {
+      #pdf-canvas {
+        transform: scale(1.5); /* Zoom isi PDF di layar kecil */
+        transform-origin: top left;
+      }
+    }
+
+    .modal-dialog {
+      max-width: 100%;
+    }
+
+    .modal-body {
+      overflow: auto;
+      text-align: center;
+    }
+  </style>
 </head>
-<style>
-    body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f0f0f0;
-}
+<body class="p-5">
 
-.image-container {
-    width: 300px;
-    height: 300px;
-    overflow: hidden;
-}
+  <!-- Tombol buka modal -->
+  <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#pdfModal">
+    Lihat PDF
+  </button>
 
-.image-container img {
-    width: 100%;
-    height: 100%;
-    transition: transform 0.3s ease;
-}
-
-.image-container img:hover {
-    transform: scale(1.05);
-}
-
-</style>
-<body>
-    <div class="image-container">
-        <img id="mainImage" src="image/TES4.png" alt="Gambar Awal">
+  <!-- Modal Bootstrap -->
+  <div class="modal fade" id="pdfModal" tabindex="-1" aria-labelledby="pdfModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center">
+            <h5 class="modal-title me-3" id="pdfModalLabel">Preview PDF</h5>
+            <a href="fileku.pdf" download class="btn btn-outline-primary btn-sm">Download</a>
+          </div>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Tutup"></button>
+        </div>
+        <div class="modal-body">
+          <canvas id="pdf-canvas"></canvas>
+        </div>
+      </div>
     </div>
+  </div>
 
-    <script src="js/script.js"></script>
-    <script>
-        
-    </script>
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+  <!-- PDF.js Library -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.min.js"></script>
+
+  <script>
+    const url = 'Paklaring-BPS.pdf'; // Ganti dengan file PDF kamu
+
+    const pdfjsLib = window['pdfjs-dist/build/pdf'];
+    pdfjsLib.GlobalWorkerOptions.workerSrc = 'https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.14.305/pdf.worker.min.js';
+
+    const canvas = document.getElementById('pdf-canvas');
+    const context = canvas.getContext('2d');
+
+    let pdfDoc = null;
+
+    // Saat modal dibuka, render halaman pertama
+    document.getElementById('pdfModal').addEventListener('shown.bs.modal', () => {
+      if (!pdfDoc) {
+        pdfjsLib.getDocument(url).promise.then(function(pdf) {
+          pdfDoc = pdf;
+          return pdf.getPage(1);
+        }).then(function(page) {
+          const viewport = page.getViewport({ scale: 1.5 }); // Zoom default
+          canvas.height = viewport.height;
+          canvas.width = viewport.width;
+
+          const renderContext = {
+            canvasContext: context,
+            viewport: viewport
+          };
+          page.render(renderContext);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
